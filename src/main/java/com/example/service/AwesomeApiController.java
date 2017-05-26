@@ -10,7 +10,7 @@ public class AwesomeApiController implements AwesomeApi {
 
     @Override
     public Map<String, String> awesome() {
-        System.out.println("docker-demo v1.2 Awesome controller hit!");
-        return Collections.singletonMap("message", "Awesome! (v1.2)");
+        System.out.println("docker-demo v1.1 Awesome controller hit!");
+        return Collections.singletonMap("message", "Awesome! (v1.1)");
     }
 }

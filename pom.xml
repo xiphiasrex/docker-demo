@@ -65,7 +65,7 @@
 					<verbose>true</verbose>
 					<images>
 						<image>
-							<name>docker-demo:1.2</name>
+							<name>docker-demo:1.1</name>
 							<build>
 								<dockerFile>Dockerfile</dockerFile>
 								<assembly>
