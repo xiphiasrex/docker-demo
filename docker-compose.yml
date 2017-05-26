@@ -1,0 +1,20 @@
+version: '2.0'
+services:
+  docker-demo-1:
+    ports: ["8081:8080"]
+    image: "docker-demo:1.1"
+
+  docker-demo-2:
+    ports: ["8082:8080"]
+    image: "docker-demo:1.2"
+#    deploy:
+#      restart_policy:
+#        condition: on-failure
+#        delay: 3s
+#        max_attempts: 3
+#        window: 30s
+#    healthcheck:
+#      test: curl -X GET -w "\n" 'http://localhost:8082/docker-demo/awesome'
+#      interval: 1m30s
+#      timeout: 10s
+#      retries: 3
