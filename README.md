@@ -9,7 +9,7 @@ Small demo project to play around with docker
 ### Setup ###
 * Import as a Gradle project
 * run `gradle build buildDocker` to build a docker image (plugin starts using version tag 1.0)
-** You can add -Papp_version="X" to set the version tag
+   * You can add -Papp_version="X" to set the version tag
 
 ### Running in Docker ###
 `docker run -d --name demo -p 8080:8080 docker-demo:1.0`  
