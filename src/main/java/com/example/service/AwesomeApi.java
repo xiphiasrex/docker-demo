@@ -12,8 +12,8 @@ import io.swagger.annotations.ApiOperation;
 @Api(value = "awesome")
 public interface AwesomeApi {
 
-	@ApiOperation(value = "Just responds with \"Awesome!\"", notes = "", response = String.class, tags = { "awesome" })
-	@RequestMapping(value = "/awesome", produces = { "application/json" }, method = RequestMethod.GET)
-	public @ResponseBody Map<String, String> awesome();
+  @ApiOperation(value = "Just responds with \"Awesome!\"", notes = "", response = String.class, tags = { "awesome" })
+  @RequestMapping(value = "/awesome", produces = { "application/json" }, method = RequestMethod.GET)
+  public @ResponseBody Map<String, String> awesome();
 
 }

@@ -8,9 +8,9 @@ import org.springframework.stereotype.Controller;
 @Controller
 public class AwesomeApiController implements AwesomeApi {
 
-    @Override
-    public Map<String, String> awesome() {
-        System.out.println("docker-demo v1.1 Awesome controller hit!");
-        return Collections.singletonMap("message", "Awesome! (v1.1)");
-    }
+  @Override
+  public Map<String, String> awesome() {
+    System.out.println("docker-demo v1.1 Awesome controller hit!");
+    return Collections.singletonMap("message", "Awesome! (v1.1)");
+  }
 }
