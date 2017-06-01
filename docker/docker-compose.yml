@@ -1,20 +1,12 @@
 version: '2.0'
 services:
-  docker-demo-1:
+  docker-demo-web:
     ports: ["8080:8080"]
     image: "docker-demo:1.0"
+    container_name: docker-demo
 
-  docker-demo-2:
-    ports: ["8081:8080"]
-    image: "docker-demo:1.0"
-#    deploy:
-#      restart_policy:
-#        condition: on-failure
-#        delay: 3s
-#        max_attempts: 3
-#        window: 30s
-#    healthcheck:
-#      test: curl -X GET -w "\n" 'http://localhost:8082/docker-demo/awesome'
-#      interval: 1m30s
-#      timeout: 10s
-#      retries: 3
+  docker-demo-redis:
+    image: "redis"
+    volumes: ["/docker/host/dir:/data"]
+    command: redis-server
+    container_name: redis
