@@ -13,7 +13,7 @@ Small demo project to play around with docker and redis
 
 ### Running in Docker ###
 `docker-compose up -d`
-* Need to be in [project]/docker folder  
+* Need to be in `[project]/docker` folder  
 * The volume `/docker/host/dir` needs to be available to docker
 * Can access the application from <http://localhost:8080/docker-demo/swagger-ui.html>
 
