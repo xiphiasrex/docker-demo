@@ -13,17 +13,18 @@ import springfox.documentation.spring.web.plugins.Docket;
 
 @Configuration
 public class SwaggerConfig {
-  @Bean
-  public Docket api() {
-    return new Docket(DocumentationType.SWAGGER_2).select()
-        .apis(RequestHandlerSelectors.basePackage("com.example.service")).paths(PathSelectors.any()).build()
-        .apiInfo(apiInfo());
-  }
+    @Bean
+    public Docket api() {
+        return new Docket(DocumentationType.SWAGGER_2).select()
+            .apis(RequestHandlerSelectors.basePackage("com.example.service")).paths(PathSelectors.any()).build()
+            .apiInfo(apiInfo());
+    }
 
-  ApiInfo apiInfo() {
-    return new ApiInfoBuilder().title("Awesome Swagger API").description("Call our serivce to see an awesome message!")
-        .license("Apache 2.0").licenseUrl("http://www.apache.org/licenses/LICENSE-2.0.html").termsOfServiceUrl("")
-        .version("1.1").contact(new Contact("", "", "")).build();
-  }
+    ApiInfo apiInfo() {
+        return new ApiInfoBuilder().title("Awesome Swagger API").description(
+            "Call our serivce to see an awesome message!")
+            .license("Apache 2.0").licenseUrl("http://www.apache.org/licenses/LICENSE-2.0.html").termsOfServiceUrl("")
+            .version("1.0").contact(new Contact("", "", "")).build();
+    }
 
 }

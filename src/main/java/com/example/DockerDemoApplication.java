@@ -25,57 +25,57 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @PropertySource("classpath:application.properties")
 public class DockerDemoApplication {
 
-  @Value("${spring.redis.host}")
-  private String redisHostName;
+    @Value("${spring.redis.host}")
+    private String redisHostName;
 
-  @Value("${spring.redis.port}")
-  private int redisPort;
+    @Value("${spring.redis.port}")
+    private int redisPort;
 
-  @Bean
-  public static PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer() {
-    return new PropertySourcesPlaceholderConfigurer();
-  }
+    @Bean
+    public static PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer() {
+        return new PropertySourcesPlaceholderConfigurer();
+    }
 
-  @Bean
-  JedisConnectionFactory jedisConnectionFactory() {
-    final JedisConnectionFactory factory = new JedisConnectionFactory();
-    factory.setHostName(redisHostName);
-    factory.setPort(redisPort);
-    factory.setUsePool(true);
-    return factory;
-  }
+    @Bean
+    JedisConnectionFactory jedisConnectionFactory() {
+        final JedisConnectionFactory factory = new JedisConnectionFactory();
+        factory.setHostName(redisHostName);
+        factory.setPort(redisPort);
+        factory.setUsePool(true);
+        return factory;
+    }
 
-  @Bean
-  StringRedisTemplate redisTemplate() {
-    final StringRedisTemplate redisTemplate = new StringRedisTemplate();
-    redisTemplate.setConnectionFactory(jedisConnectionFactory());
-    return redisTemplate;
-  }
+    @Bean
+    StringRedisTemplate redisTemplate() {
+        final StringRedisTemplate redisTemplate = new StringRedisTemplate();
+        redisTemplate.setConnectionFactory(jedisConnectionFactory());
+        return redisTemplate;
+    }
 
-  @Bean
-  RedisCacheManager cacheManager() {
-    final RedisCacheManager redisCacheManager = new RedisCacheManager(redisTemplate());
-    return redisCacheManager;
-  }
+    @Bean
+    RedisCacheManager cacheManager() {
+        final RedisCacheManager redisCacheManager = new RedisCacheManager(redisTemplate());
+        return redisCacheManager;
+    }
 
-  @Bean
-  AsyncEventBus asyncEventBus() {
-    final AsyncEventBus aeb = new AsyncEventBus(Executors.newSingleThreadExecutor());
-    aeb.register(producer());
-    return aeb;
-  }
+    @Bean
+    AsyncEventBus asyncEventBus() {
+        final AsyncEventBus aeb = new AsyncEventBus(Executors.newSingleThreadExecutor());
+        aeb.register(producer());
+        return aeb;
+    }
 
-  @Bean
-  SequenceConsumer consumer() {
-    return new SequenceConsumer();
-  }
+    @Bean
+    SequenceConsumer consumer() {
+        return new SequenceConsumer();
+    }
 
-  @Bean
-  SequenceProducer producer() {
-    return new SequenceProducer();
-  }
+    @Bean
+    SequenceProducer producer() {
+        return new SequenceProducer();
+    }
 
-  public static void main(String[] args) {
-    SpringApplication.run(DockerDemoApplication.class, args);
-  }
+    public static void main(String[] args) {
+        SpringApplication.run(DockerDemoApplication.class, args);
+    }
 }

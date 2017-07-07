@@ -2,14 +2,13 @@
 Small demo project to play around with docker and redis
 
 ### Basic Components ###
-* Spring Boot Application built with Gradle
+* Spring Boot Application built with maven
 * Simple Dockerfile that builds an image of alpine linux + java8 + runnable jar
 * Docker compose file that will start a container for the app and one for a redis server
 
 ### Setup ###
-* Import as a Gradle project
-* run `gradle build buildDocker` to build a docker image (plugin starts using version tag 1.0)
-   * You can add -Papp_version="X" to set the version tag
+* Import as a Maven project
+* run `mvn package docker:build` to build a docker image (plugin starts using version tag 1.0)
 
 ### Running in Docker ###
 `docker-compose up -d`
@@ -34,8 +33,8 @@ Small demo project to play around with docker and redis
 
 ### Future plans ###
 - [X] Convert project to Gradle
+- [X] ...and back to Maven
 - [X] Connect application to a redis data source
 - [X] Update REST service to use data source
 - [X] Expand on the compose file include a DB container
 - [ ] Add Spring cloud config
-- [ ] Secure REST API using Spring Security
